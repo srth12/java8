@@ -3,6 +3,7 @@ import com.github.sunitparekh.Movies;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
@@ -31,9 +32,9 @@ public class MoviesTest {
 
         Movies movies = new Movies(threeIdiot,lageRahoMunnaBhai,munnaBhaiMBBS);
 
-        movies = movies.filterByLeadActor("amir khan");
+        movies = movies.filterByLeadActor("Sanjay Datt");
 
-        assertThat(movies.size(),equalTo(1));
-        assertThat(movies.get(0), equalTo(threeIdiot));
+        assertThat(movies.size(),equalTo(2));
+        assertThat(movies, equalTo(Arrays.asList(lageRahoMunnaBhai,munnaBhaiMBBS)));
     }
 }

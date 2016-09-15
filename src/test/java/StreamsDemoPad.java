@@ -38,9 +38,11 @@ public class StreamsDemoPad {
         );
 
         // get names of all students
-        Stream<String> namesStream = students.stream().map(s -> s.name);
-        List<String> names = namesStream.collect(Collectors.toList());
-        System.out.println(names);
+        List<String> names = students.stream()
+                .map(s -> s.name)
+                .peek(System.out::println)
+                .collect(Collectors.toList());
+
 
         // get list of all students who are born in leap year
         List<Student> leapYearStudents = students.stream()
@@ -54,6 +56,6 @@ public class StreamsDemoPad {
                 .collect(Collectors.toList());
         System.out.println(adults);
 
-//        Files.lines(Paths.get("pom.xml")).forEach(System.out::println);
+        Files.lines(Paths.get("pom.xml")).forEach(System.out::println);
     }
 }
